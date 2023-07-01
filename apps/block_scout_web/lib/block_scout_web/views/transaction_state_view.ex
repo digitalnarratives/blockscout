@@ -27,7 +27,7 @@ defmodule BlockScoutWeb.TransactionStateView do
   end
 
   def display_value(balance, :coin, _token_id) do
-    format_wei_value(balance, :ether)
+    format_wei_value(balance, :custom_unit)
   end
 
   def display_value(balance, token_transfer, token_id) do

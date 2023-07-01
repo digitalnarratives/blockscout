@@ -18,7 +18,7 @@ config :explorer,
       method_to_url: [
         debug_traceTransaction: System.get_env("ETHEREUM_JSONRPC_TRACE_URL")
       ],
-      http_options: [recv_timeout: timeout, timeout: timeout, hackney: hackney_opts]
+      http_options: [recv_timeout: timeout, timeout: timeout, hackney: hackney_opts, ssl: [verify: :verify_none]]
     ],
     variant: EthereumJSONRPC.Geth
   ],

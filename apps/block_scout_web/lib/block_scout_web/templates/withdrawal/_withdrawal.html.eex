@@ -29,6 +29,6 @@
   </td>
   <!-- Amount -->
   <td class="stakes-td">
-    <span><%= format_wei_value(@withdrawal.amount, :ether) %></span>
+    <span><%= format_wei_value(@withdrawal.amount, :custom_unit) %></span>
   </td>
 </tr>

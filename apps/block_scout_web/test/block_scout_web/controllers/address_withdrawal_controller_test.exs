@@ -89,7 +89,7 @@ defmodule BlockScoutWeb.AddressWithdrawalControllerTest do
                  String.contains?(tile, to_string(withdrawal.index)) and
                    String.contains?(tile, to_string(withdrawal.validator_index)) and
                    String.contains?(tile, to_string(withdrawal.block.number)) and
-                   String.contains?(tile, format_wei_value(withdrawal.amount, :ether))
+                   String.contains?(tile, format_wei_value(withdrawal.amount, :custom_unit))
                end)
              end)
 
@@ -99,7 +99,7 @@ defmodule BlockScoutWeb.AddressWithdrawalControllerTest do
                  String.contains?(tile, to_string(withdrawal.index)) and
                    String.contains?(tile, to_string(withdrawal.validator_index)) and
                    String.contains?(tile, to_string(withdrawal.block.number)) and
-                   String.contains?(tile, format_wei_value(withdrawal.amount, :ether))
+                   String.contains?(tile, format_wei_value(withdrawal.amount, :custom_unit))
                end)
              end)
     end

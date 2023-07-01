@@ -6,6 +6,6 @@ defmodule BlockScoutWeb.Account.WatchlistAddressView do
   def balance_ether(nil), do: ""
 
   def balance_ether(balance) do
-    format_wei_value(balance, :ether)
+    format_wei_value(balance, :custom_unit)
   end
 end

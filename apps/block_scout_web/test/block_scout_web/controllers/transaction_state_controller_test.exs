@@ -173,9 +173,9 @@ defmodule BlockScoutWeb.TransactionStateControllerTest do
       {:ok, %{"items" => items}} = conn.resp_body |> Poison.decode()
       full_text = Enum.join(items)
 
-      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(1, 1, 18)}, :ether)))
+      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(1, 1, 18)}, :custom_unit)))
 
-      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(1, 2, 18)}, :ether)))
+      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(1, 2, 18)}, :custom_unit)))
 
       assert(length(items) == 5)
     end
@@ -244,13 +244,13 @@ defmodule BlockScoutWeb.TransactionStateControllerTest do
       full_text = Enum.join(items)
 
       assert(length(items) == 3)
-      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(0)}, :ether)))
+      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(0)}, :custom_unit)))
 
       1 |> :timer.seconds() |> :timer.sleep()
       conn = get(conn, transaction_state_path(conn, :index, transaction), %{type: "JSON"})
       {:ok, %{"items" => items}} = conn.resp_body |> Poison.decode()
       full_text = Enum.join(items)
-      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(123)}, :ether)))
+      assert(String.contains?(full_text, format_wei_value(%Wei{value: Decimal.new(123)}, :custom_unit)))
       assert(length(items) == 3)
     end
   end
